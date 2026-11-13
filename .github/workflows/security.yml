@@ -59,10 +59,10 @@ jobs:
           grep -q 'trash-v415.js?v=4.15' assets/js/supabase-config.js
           grep -q 'RASS_TRASH_VERSION' assets/js/trash-v415.js
           grep -q "const TABLE = 'rass_trash'" assets/js/trash-v415.js
-          grep -q 'runtime-v415.js?v=4.15' index.html
-          grep -q 'runtime-v415.js?v=4.15' admin.html
-          grep -q 'security.js?v=4.15' index.html
-          grep -q 'security.js?v=4.15' admin.html
+          grep -q 'runtime-v415.js?v=5.0' index.html
+          grep -q 'runtime-v415.js?v=5.0' admin.html
+          grep -q 'security.js?v=5.0' index.html
+          grep -q 'security.js?v=5.0' admin.html
           ! grep -Eq '\?v=4\.(8|9|10|11|12|13|14)([^0-9]|$)' index.html admin.html
       - name: JavaScript syntax
         run: |
