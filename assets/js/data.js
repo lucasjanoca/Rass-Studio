@@ -16,8 +16,8 @@
       studioName:'Rass Studio',instagram:'@rassstudio_',instagramUrl:'https://www.instagram.com/rassstudio_?igsh=MTJhN3l2cXhnZG14bQ==',whatsapp:'5515991799866',
       location:'Cerquilho — SP',hours:'Atendimento com hora marcada',workDays:[2,3,4,5,6],startHour:9,endHour:18,interval:60,
       siteOpen:true,siteNotice:'',lowStockThreshold:2,
-      heroEyebrow:'PIERCING · NAIL DESIGN · JOIAS',heroLine1:'Rass Studio.',heroLine2:'Seu estilo.',heroLine3:'Sua expressão.',heroSubtitle:'Body piercing e nail design em um studio feito para cuidar dos detalhes que fazem você se sentir você.',
-      heroPrimary:'assets/images/helix.jpg',heroSecondary:'assets/images/nails-fibra.jpg',showJewelry:true,showGallery:true,showFaq:true
+      heroEyebrow:'PIERCING · JOIAS',heroLine1:'Rass Studio.',heroLine2:'Seu estilo.',heroLine3:'Sua expressão.',heroSubtitle:'Piercings, joias e composições que expressam quem você é. Atendimento individual com Raquel, em Cerquilho.',
+      heroPrimary:'assets/images/helix.jpg',heroSecondary:'assets/images/tragus.jpg',showJewelry:true,showGallery:true,showFaq:true
     },
     services:[
       {id:'srv_nostril',type:'Piercing',name:'Nostril',category:'Rosto',price:80,duration:30,active:true,featured:true,description:'Clássico e delicado, valoriza o rosto com um detalhe discreto e cheio de personalidade.',image:'assets/images/nostril.jpg'},
@@ -28,9 +28,6 @@
       {id:'srv_industrial',type:'Piercing',name:'Industrial / Transversal',category:'Orelha',price:120,duration:45,active:true,featured:true,description:'Visual forte e estiloso com duas perfurações conectadas por uma única joia.',image:'assets/images/industrial.jpg'},
       {id:'srv_labret',type:'Piercing',name:'Labret / Lábio',category:'Rosto',price:100,duration:35,active:true,featured:false,description:'Destaque para os lábios com uma proposta moderna e personalizada.',image:'assets/images/labret.jpg'},
       {id:'srv_helix',type:'Piercing',name:'Hélix / Cartilagem',category:'Orelha',price:90,duration:35,active:true,featured:true,description:'Perfeito para criar composições delicadas ou mais marcantes na orelha.',image:'assets/images/helix.jpg'},
-      {id:'srv_fibra',type:'Unhas',name:'Alongamento em fibra',category:'Nail Design',price:0,duration:120,active:true,featured:true,description:'Alongamento com estrutura leve e elegante, construído para personalizar comprimento e formato.',image:'assets/images/nails-fibra.jpg'},
-      {id:'srv_f1',type:'Unhas',name:'Molde F1',category:'Nail Design',price:0,duration:120,active:true,featured:true,description:'Técnica de alongamento com molde F1 para acabamento alinhado, moderno e personalizado.',image:'assets/images/nails-f1.jpg'},
-      {id:'srv_banho_gel',type:'Unhas',name:'Banho em gel',category:'Nail Design',price:0,duration:90,active:true,featured:true,description:'Camada de gel para reforçar a unha natural, trazendo resistência, brilho e acabamento impecável.',image:'assets/images/nails-gel.jpg'}
     ],
     jewelry:[
       {id:'j1',name:'Ponto de Luz 3mm',category:'Labret',material:'Titânio',price:60,qty:5,active:true,description:'Modelo minimalista com brilho delicado para diferentes composições.',image:'assets/images/joia-ponto-luz.svg'},
@@ -47,12 +44,9 @@
       {id:'g4',type:'Piercing',title:'Umbigo',image:'assets/images/umbigo.jpg',active:true,featured:true},
       {id:'g5',type:'Piercing',title:'Sobrancelha',image:'assets/images/sobrancelha.jpg',active:true,featured:false},
       {id:'g6',type:'Piercing',title:'Industrial',image:'assets/images/industrial.jpg',active:true,featured:true},
-      {id:'g7',type:'Unhas',title:'Alongamento em fibra',image:'assets/images/nails-fibra.jpg',active:true,featured:true,credit:'Foto demonstrativa · Pexels'},
-      {id:'g8',type:'Unhas',title:'Molde F1',image:'assets/images/nails-f1.jpg',active:true,featured:true,credit:'Foto demonstrativa · Pexels'},
-      {id:'g9',type:'Unhas',title:'Banho em gel',image:'assets/images/nails-gel.jpg',active:true,featured:true,credit:'Foto demonstrativa · Pexels'}
     ],
     promotions:[],
-    staff:[{id:'staff_raquel',name:'Raquel',specialties:['Piercing','Unhas'],active:true,phone:'',notes:'Responsável pelo studio.'}],
+    staff:[{id:'staff_raquel',name:'Raquel',specialties:['Piercing'],active:true,phone:'',notes:'Responsável pelo studio.'}],
     appointments:[],quotes:[],clients:[],blocked:[],transactions:[],notifications:[],trash:[]
   };
 

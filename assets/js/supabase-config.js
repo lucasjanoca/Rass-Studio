@@ -277,8 +277,8 @@ window.RASS_SUPABASE_CONFIG = {
     injectStabilityCss();
     installReliableWhatsapp();
     makePublicHydrationProgressive();
-    hardenBookingSelection();
-    addBookingSavedFeedback();
+
+
     improveAdminAppointments();
     fixMfaDom();
 

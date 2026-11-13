@@ -1,0 +1,26 @@
+const {readFileSync}=require('node:fs');
+const vm=require('node:vm');
+const assert=require('node:assert/strict');
+const nodes=new Map();
+const node=id=>{if(!nodes.has(id))nodes.set(id,{value:'',innerHTML:'',textContent:'',hidden:false,classList:{toggle(){}},before(){},focus(){},scrollIntoView(){},remove(){},setAttribute(){}});return nodes.get(id)};
+const data={settings:{startHour:9,endHour:18,interval:60,workDays:[0,1,2,3,4,5,6],whatsapp:'5515991799866'},services:[{id:'s',name:'Hélix',duration:90,price:90,type:'Piercing'}],staff:[{id:'r',name:'Raquel',active:true}]};
+const document={querySelector:node,querySelectorAll:()=>[],addEventListener(){},createElement:()=>node('#bookingReceipt')};
+let pending=[];
+const remote={configured:()=>true,unavailable:()=>new Promise(resolve=>pending.push(resolve))};
+const ctx=vm.createContext({window:{RassData:{get:k=>data[k]},RassRemote:remote},document,RassRemote:remote,console,Intl,Date,setTimeout,clearTimeout,navigator:{},requestAnimationFrame(){}});
+vm.runInContext(readFileSync('assets/js/app.js','utf8'),ctx);
+vm.runInContext("selectedService='s';selectedStaff='r';",ctx);
+assert.equal(vm.runInContext("slots().at(-1)",ctx),'16:00','90 minute services must finish before closing');
+node('#bookingDate').value='2000-01-01';
+(async()=>{
+ await vm.runInContext('renderTimes()',ctx);assert.match(node('#timeGrid').innerHTML,/180 dias/);assert.equal(pending.length,0);
+ node('#bookingDate').value=vm.runInContext('maxBookingDate()',ctx);
+ const old=vm.runInContext('renderTimes()',ctx),fresh=vm.runInContext('renderTimes()',ctx);
+ pending[1]([{all_day:true}]);await fresh;pending[0]([]);await old;
+ assert.match(node('#timeGrid').innerHTML,/Sem horários/,'stale replies must not replace current availability');
+ vm.runInContext(`showBookingReceipt({name:'<script>bad</script>',phone:'15999990000',service:'Hélix',staff:'Raquel',date:'2026-12-01',time:'09:00',amount:90,notes:'A & B'},{id:'test-reference'})`,ctx);
+ const receipt=node('#bookingReceipt').innerHTML;
+ assert.match(receipt,/wa.me\/5515991799866\?text=/);assert.match(receipt,/pendente de confirmação/);assert.match(receipt,/toque em <strong>Enviar/);assert.doesNotMatch(receipt,/<script>/);assert.ok(node('#bookingForm').hidden);
+ const text=decodeURIComponent(receipt.match(/\?text=([^"]+)/)[1]);assert.match(text,/01\/12\/2026/);assert.match(text,/09:00/);assert.match(text,/test-reference/);
+ console.log('PASS: closing duration, past dates, stale availability, pending receipt, WhatsApp destination/details and HTML escaping.');
+})().catch(e=>{console.error(e);process.exitCode=1});

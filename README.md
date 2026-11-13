@@ -1,6 +1,6 @@
-# 💅 RASS Studio
+# ✦ RASS Studio
 
-> Site e sistema web desenvolvido para um studio de unhas e joias.
+> Site e sistema web desenvolvido para um studio de body piercing e joias.
 
 O **RASS Studio** é um projeto real criado para apresentar serviços, produtos e facilitar o contato e o agendamento com clientes. O foco do desenvolvimento foi entregar uma experiência elegante, simples e especialmente bem adaptada ao celular.
 
@@ -10,7 +10,7 @@ O **RASS Studio** é um projeto real criado para apresentar serviços, produtos 
 
 ## ✨ Recursos
 
-- Catálogo de serviços de unhas
+- Catálogo de serviços de piercing
 - Área dedicada a joias e produtos
 - Fluxo de agendamento
 - Contato facilitado
